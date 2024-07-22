@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piyush Shukla - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      background-color: #f4f4f4;
+      padding-top: 120px; /* Space for header and nav bar */
+      padding-bottom: 60px; /* Space for footer */
+    }
+
+    header {
+      background-color: #003F5C;
+      color: white;
+      text-align: center;
+      padding: 0.5em 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100; /* Above nav bar */
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    header h1 {
+      margin: 0.2em 0;
+      font-size: 1.8em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1em;
+    }
+
+    .profile-pic {
+      position: absolute;
+      bottom: -30px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .menu-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #003F5C;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 110; /* Above the nav bar */
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      background-color: rgba(51, 51, 51, 0.8);
+      position: fixed;
+      top: 70px; /* Position below header */
+      left: 0; /* Align to the left side */
+      width: 200px; /* Fixed width for vertical menu */
+      height: calc(100% - 70px); /* Full height minus the header */
+      transform: translateX(-100%); /* Hide initially */
+      transition: transform 0.3s;
+      z-index: 100; /* Below the menu button */
+    }
+
+    nav.active {
+      transform: translateX(0); /* Show when active */
+    }
+
+    nav a {
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      text-align: left;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #575757;
+    }
+
+    section {
+      padding: 1.5em;
+      margin: 1em auto;
+      max-width: 1200px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-10px);
+    }
+
+    section h2 {
+      color: #003F5C;
+      border-bottom: 2px solid #003F5C;
+      padding-bottom: 0.5em;
+      margin-bottom: 1em;
+    }
+
+    section p, section ul li {
+      color: #333;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em 0;
+      background-color: #003F5C;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      transition: transform 0.3s;
+    }
+
+    footer.hidden {
+      transform: translateY(100%);
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.9em;
+      }
+
+      nav {
+        flex-direction: column; /* Vertical layout on smaller screens */
+        width: 100%;
+        height: auto; /* Adjust height for smaller screens */
+        top: 70px;
+        box-shadow: none; /* Remove shadow for smaller screens */
+      }
+
+      nav a {
+        padding: 10px;
+        font-size: 1em;
+      }
+
+      section {
+        margin: 1em;
+        padding: 1em;
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .contact-info {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Adjust spacing between icons */
+    }
+
+    .contact-info li {
+      margin: 0;
+    }
+
+    .contact-info a {
+      display: flex;
+      align-items: center;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .contact-info i, .contact-info img {
+      font-size: 24px; /* Ensure icon size is consistent */
+      margin-right: 8px;
+    }
+
+    .linkedin-logo {
+      width: 24px; /* Match the size of other icons */
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+  <header id="header">
+    <h1>Piyush Shukla</h1>
+    <p>Aspiring Machine Learning Engineer | Python Developer</p>
+    <img src="E:./Portfolio/Profile1.png" class="profile-pic">
+  </header>
+  <button class="menu-button" id="menuButton" aria-label="Toggle navigation menu"><i class="fas fa-bars"></i></button>
+  <nav id="navbar">
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#github">GitHub</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#extracurricular">Extracurricular</a>
+    <a href="#development">Development</a>
+  </nav>
+  <section id="contact">
+    <h2>Contact Information</h2>
+    <ul class="contact-info">
+      <li>
+        <a href="tel:+919315310130" aria-label="Call Piyush Shukla">
+          <i class="fas fa-phone"></i>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:piyushshukla532@gmail.com" aria-label="Email Piyush Shukla">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/piyush-shukla-9692322b7?utm_source=share&amp;utm_campaign=share_via&amp;utm_content=profile&amp;utm_medium=android_app" target="_blank" aria-label="LinkedIn Profile of Piyush Shukla">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn Logo" class="linkedin-logo">
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a dedicated and enthusiastic B.Tech student specializing in Computer Science and Engineering with a focus on Artificial Intelligence and Machine Learning from Noida Institute of Engineering and Technology. My academic journey, coupled with hands-on experience in Python development, has equipped me with a robust skill set in programming, data structures, and machine learning.</p>
+  </section>
+  <section id="education">
+    <h2>Educational Background</h2>
+    <ul>
+      <li>B.Tech in CSE (AI/ML) - Noida Institute of Engineering and Technology (Graduating in 2027)</li>
+      <li>12th Grade - Indirapuram Public School (2023)</li>
+      <li>10th Grade - Indirapuram Public School (2022)</li>
+    </ul>
+  </section>
+  <section id="experience">
+    <h2>Professional Experience</h2>
+    <ul>
+      <li>Python Development Intern - Technohacks (15/06/23 - 14/07/24)</li>
+    </ul>
+  </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python Development</li>
+      <li>Machine Learning</li>
+      <li>Deep Learning</li>
+      <li>Data Structures and Algorithms in Python</li>
+    </ul>
+  </section>
+  <section id="github">
+    <h2>GitHub Profile</h2>
+    <p>Check out my projects on <a href="https://github.com/piyushshuklaniet" target="_blank">GitHub</a>.</p>
+  </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><a href="https://www.linkedin.com/posts/piyush-shukla-9692322b7_task1-python-pythonabrcalculator-activity-7214509875198894081-zJqV?utm_source=share&utm_medium=member_desktop" target="_blank">Project 1</a></li>
+      <li><a href="https://www.linkedin.com/posts/piyush-shukla-9692322b7_task2-python-passwordabrgenerator-activity-7217477085026480128-6FV9?utm_source=share&utm_medium=member_desktop" target="_blank">Project 2</a></li>
+      <li><a href="https://www.linkedin.com/posts/piyush-shukla-9692322b7_task3-python-temperatureconverter-activity-7217478543276969984-KJDH?utm_source=share&utm_medium=member_desktop" target="_blank">Project 3</a></li>
+    </ul>
+  </section>
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li><a href="https://www.linkedin.com/posts/piyush-shukla-9692322b7_internship-certificate-activity-7218971929947324417-RMQ4?utm_source=share&utm_medium=member_desktop" target="_blank">Python Development</a></li>
+    </ul>
+  </section>
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <ul>
+      <li><a href="https://www.linkedin.com/posts/piyush-shukla-9692322b7_letter-of-recommendation-activity-7220013606694748162-Mhir?utm_source=share&utm_medium=member_desktop" target="_blank">Letter of Recommendation</a></li>
+    </ul>
+  </section>
+  <section id="extracurricular">
+    <h2>Extracurricular Activities</h2>
+    <p>I am actively engaged in contributing to open-source projects, attending tech conferences and meetups, and volunteering my IT skills to non-profit organizations.</p>
+  </section>
+  <section id="development">
+    <h2>Professional Development</h2>
+    <p>In addition to my formal education, I am committed to continuous learning through online tutorials for AI/ML and self-practice of machine learning in Python development.</p>
+  </section>
+  <footer id="footer">
+    <p>&copy; 2024 Piyush Shukla. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('menuButton').addEventListener('click', function() {
+      document.getElementById('navbar').classList.toggle('active');
+    });
+
+    document.querySelectorAll('nav a').forEach(function(navLink) {
+      navLink.addEventListener('click', function() {
+        document.getElementById('navbar').classList.remove('active');
+      });
+    });
+
+    let lastScrollTop = 0;
+    const header = document.getElementById('header');
+    const footer = document.getElementById('footer');
+
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        header.style.transform = 'translateY(-100%)';
+        footer.classList.add('hidden');
+      } else {
+        header.style.transform = 'translateY(0)';
+        footer.classList.remove('hidden');
+      }
+      lastScrollTop = scrollTop;
+    });
+  </script>
+</body>
+</html>
